@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2nd Graded">
+    <meta name="keywords" content="2nd Graded">
+    <meta name="author" content="Nikki">
+    <title>Q32GLithiumMagbanua</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="" sizes="32x32" type="image/png" />
+    <script src="script.js"defer></script>
+</head>
+
+<body>
+    <h1>2nd Graded Exercise</h1>
+    <fieldset>
+        <legend>General Information</legend>
+
+        <form action="submit" method="post"> 
+            <label for="studentID"> Student ID: </label>
+            <input type="number" id="studentID" name="studentID" required>
+        </form> <br/>
+
+        <form action="submit" method="post"> 
+            <label for="name"> Full Name: </label>
+            <input type="text" id="name" name="name" required>
+        </form> <br/>
+
+        <form action="submit" method="post"> 
+            <label for="bday"> Birthday: </label>
+            <input type="date" id="bday" name="bday" required>
+        </form> <br/>
+
+        <form action="submit" method="post"> 
+            <label for="email"> Email Adress: </label>
+            <input type="email" id="email" name="email" required>
+        </form> <br/>
+
+        <form action="submit" method="post"> 
+            <label for="mpnum"> Mobile Phone Number: </label>
+            <input type="text" id="mpnum" name="mpnum" required>
+        </form> <br/>
+
+        <form action="submit" method="post"> 
+            <label for="glevel"> Grade Level: </label>
+            <select id="glevel" name="glevel" required>
+                <option value="g7">Grade 7</option>
+                <option value="g8">Grade 8</option>
+                <option value="g9">Grade 9</option>
+                <option value="g10">Grade 10</option>
+                <option value="g11">Grade 11</option>
+                <option value="g12">Grade 12</option>
+            </select>
+        </form> <br/>
+
+        <form action="submit" method="post">
+            <label>
+                Extern 
+                <input type="radio" name="homestat" value="extern" required>
+            </label>
+            <label>
+                Intern 
+                <input type="radio" name="homestat" value="intern" required>
+            </label>
+        </form></br>
+
+        <form action="submit" method="post"> 
+            <label for="pclb"> Preferred Org./Club: </label>
+            <select id="pclb" name="pclb" required>
+                <option value="makerclb">Pisay.XYZ</option>
+                <option value="artclb">Likha</option>
+                <option value="chemclb">Atom</option>
+                <option value="movclb">Celluloid</option>
+                <option value="litclb">Ellipsis</option>
+            </select>
+        </form> <br/>
+    </fieldset>
+
+    <fieldset>
+        <legend> Others: </legend>
+
+        <form action="submit" method="post">
+            <label for="whyjoin"> Why do you want to join? </label> </br></br>
+            <textarea id="whyjoin" name="whyjoin" rows="4" cols="50"> Enter your reason here. </textarea>
+        </form> </br>
+    </fieldset>
+
+</body>
+
+<!--
+Intern / Extern (radio button with appropriate values different from what is displayed on the screen)
+Preferred Organization / Club (drop down menu - provide your own list with at least 5 items with appropriate values different from what is displayed on the screen)
+Why do you want to join (textarea).
+A submit and reset buttons-->
