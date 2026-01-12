@@ -10,78 +10,133 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="" sizes="32x32" type="image/png" />
     <script src="script.js"defer></script>
+
+    <style>
+        body {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            font-family: sans-serif, Arial;
+        }
+
+        fieldset {
+            border: 3px solid #adadad;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        input, textarea, select {
+            border-radius: 3px;
+            border: 2px solid #888888;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            background-color: #e7e7e7;
+        }
+        
+    </style>
 </head>
 
 <body>
     <h1>2nd Graded Exercise</h1>
-    <fieldset>
-        <legend>General Information</legend>
-        <form action="submit" method="post"> 
 
-            <label for="studentID"> Student ID: </label>
-            <input type="number" id="studentID" name="studentID" required> </br></br>
+    <form action="submit" method="post" onsubmit="return submitconf()" onreset="return resetconf()">
+        <fieldset>
+            <legend>General Information</legend>
 
-            <label for="name"> Full Name: </label>
-            <input type="text" id="name" name="name" required></br></br>
+            <label for="studentID"> Student ID: 
+                <input type="number" id="studentID" name="studentID" required onblur="checkempty(this)">
+            </label></br></br>
 
-            <label for="bday"> Birthday: </label>
-            <input type="date" id="bday" name="bday" required></br></br>
+            <label for="name"> Full Name: 
+                <input type="text" id="name" name="name" required onblur="checkempty(this)">
+            </label></br></br>
 
-            <label for="email"> Email Adress: </label>
-            <input type="email" id="email" name="email" required></br></br>
- 
-            <label for="mpnum"> Mobile Phone Number: </label>
-            <input type="text" id="mpnum" name="mpnum" required></br></br>
+            <label for="bday"> Birthday: 
+                <input type="date" id="bday" name="bday" required onblur="checkempty(this)">
+            </label></br></br>
 
-            <label for="glevel"> Grade Level: </label>
-            <select id="glevel" name="glevel" required>
-                <option value="g7">Grade 7</option>
-                <option value="g8">Grade 8</option>
-                <option value="g9">Grade 9</option>
-                <option value="g10">Grade 10</option>
-                <option value="g11">Grade 11</option>
-                <option value="g12">Grade 12</option>
-            </select><br/></br>
+            <label for="email"> Email Adress: 
+                <input type="email" id="email" name="email" required onblur="checkempty(this)">
+            </label></br></br>
+
+        </fieldset>
+    
+        <fieldset>
+            <legend>Contact Information</legend>
+
+            <label for="mpnum"> Mobile Phone Number:
+                <input type="text" id="mpnum" name="mpnum" required onblur="checkempty(this)">
+            </label></br></br>
+
+            <label for="glevel"> Grade Level:
+                <select id="glevel" name="glevel" required onblur="checkempty(this)">
+                    <option value="">-- Select Grade Level --</option>
+                    <option value="g7">Grade 7</option>
+                    <option value="g8">Grade 8</option>
+                    <option value="g9">Grade 9</option>
+                    <option value="g10">Grade 10</option>
+                    <option value="g11">Grade 11</option>
+                    <option value="g12">Grade 12</option>
+                </select>
+            </label></br></br>
 
             <label>
                 Extern 
-            <input type="radio" name="homestat" value="extern" required>
+                <input type="radio" name="homestat" value="extern" required>
             </label>
             <label>
                 Intern 
                 <input type="radio" name="homestat" value="intern" required>
             </label></br></br>
 
-            <label for="pclb"> Preferred Org./Club: </label>
-            <select id="pclb" name="pclb" required>
-                <option value="makerclb">Pisay.XYZ</option>
-                <option value="artclb">Likha</option>
-                <option value="chemclb">Atom</option>
-                <option value="movclb">Celluloid</option>
-                <option value="litclb">Ellipsis</option>
-            </select></br></br>
+            <label for="pclb"> Preferred Org./Club: 
+                <select id="pclb" name="pclb" required onblur="checkempty(this)">
+                    <option value="makerclb">Pisay.XYZ</option>
+                    <option value="artclb">Likha</option>
+                    <option value="chemclb">Atom</option>
+                    <option value="movclb">Celluloid</option>
+                    <option value="litclb">Ellipsis</option>
+                </select>
+            </label></br></br>
+        </fieldset>
+        
+        <label for="whyjoin"> Why do you want to join?
+            </br></br><textarea id="whyjoin" name="whyjoin" rows="4" cols="100" required placeholder="Enter your reason here."onblur="checkempty(this)"> </textarea>
+        </label> </br>
 
-            <input type='submit' name='Submit' value='Submit' /></br>
-        </form>
-    </fieldset>
-
-    <fieldset>
-        <legend> Others: </legend>
-
-        <form action="submit" method="post">
-            <label for="whyjoin"> Why do you want to join? </label> </br></br>
-            <textarea id="whyjoin" name="whyjoin" rows="4" cols="50"> Enter your reason here. </textarea></br>
-
-            <input type='sumit' name='Submit' value='Submit'/></br>
-        </form> </br>
-    </fieldset>
-
-
-
+        <input type='submit' name='Submit' value='Submit'/>
+        <input type='reset' name='Reset' value='Reset'/>
+    </form>
 </body>
 
-<!--
-Intern / Extern (radio button with appropriate values different from what is displayed on the screen)
-Preferred Organization / Club (drop down menu - provide your own list with at least 5 items with appropriate values different from what is displayed on the screen)
-Why do you want to join (textarea).
-A submit and reset buttons-->
+<script>
+
+    function submitconf() {
+        return confirm("Are you sure you want to submit the form?");
+    }
+
+    function resetconf() {
+        return confirm("Are you sure you want to reset the form?");
+    }
+
+
+    function checkempty(field) {
+        if (field.value.trim() == "") {
+            field.style.border = "2px solid red";
+            field.style.backgroundColor = "#ffe7e7";
+        }else {
+            field.style.border = "2px solid green";
+            field.style.backgroundColor = "#e7ffe7";
+        }
+    }
+
+</script>
+
+</html>
